@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Scrollable Image Gallery with Categories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+         
+
+       
+        .marquee-header {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .marquee-header marquee {
+            font-size: 30px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #FF6347;
+        }
+
+        
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 25px;
+            border: 2px solid #FF6347;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchInput:focus {
+            border-color: #00FF00;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+        }
+
+        
+        .category-title {
+            margin-top: 40px;
+            font-size: 28px;
+            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background-color: #bef1c6;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+      
+        .scrollable-gallery {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        
+        .scrollable-gallery .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .scrollable-gallery img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+
+       
+        .scrollable-gallery img:hover {
+            transform: scale(1.15) rotate(5deg); /* Slight zoom and rotation */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+            filter: brightness(1.2);
+            cursor: pointer;
+        }
+
+       
+        .scrollable-gallery img.selected {
+            
+            z-index: 1; 
+            transition: transform 0.5s ease;
+        }
+
+       
+        .image-name {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+      
+        .scrollable-gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scrollable-gallery::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .scrollable-gallery::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+
+        .marquee-header {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .marquee-header marquee {
+            font-size: 30px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #FF6347;
+        }
+
+        .welcome-note {
+    width: 100%;
+    background-image: url('photos/well.jpg');
+    background-size: contain;
+    background-repeat:repeat;
+    padding: 30px 15px;
+    color: #1a94f2;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust height as needed */
+    overflow: hidden; /* Ensures no overflow of content */
+    animation: moveBackground 10s linear infinite; /* Apply animation */
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+.about-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #FF6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-button:hover {
+    background-color: #FF4500;
+    transform: scale(1.1);
+}
+        .category-title {
+            margin-top: 40px;
+            font-size: 28px;
+            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background-color: #bef1c6;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .about-section {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .copyright-marquee {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .copyright-marquee marquee {
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="marquee-header">
+            <marquee>Our Services: Innovative Solutions, Cutting-Edge Technology, and Advanced Automation</marquee>
+        </div>
+
+        <div class="welcome-note">
+            
+                Welcome to Our Services! Experience the Best with Us
+            
+        </div>
+        
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for an image..." />
+        </div>
+
+        <div class="category-title">Maintenance and Repair</div>
+        <div class="gallery-container">
+            <div class="scrollable-gallery" id="category1Gallery">
+                <!-- Your existing images for category 1 -->
+                <div class="image-container">
+                    <a href="electrician.html"><img src="photos/electrician2.jpg" alt="Electrician" data-title="Electrician" data-name="Electrician"></a>
+                    <div class="image-name">Electrician</div>
+                </div>
+                <div class="image-container">
+                    <a href="interior copy.html"> <img src="photos/interior.jpg" alt="Interior design and Renovation" data-title="Interior design and Renovation" data-name="Interior design and Renovation"></a>
+                    <div class="image-name">Interior design and Renovation</div>
+                </div>
+                <div class="image-container">
+                    <a href="furniture.html">  <img src="photos/carpenter.jpg" alt="Furniture repair and Assembly" data-title="Furniture repair and Assembly" data-name="Furniture repair and Assembly"></a>
+                    <div class="image-name">Furniture repair and Assembly</div>
+                </div>
+                <div class="image-container">
+                    <a href="plumber.html">  <img src="photos/plumber2.jpg" alt="Plumber" data-title="Plumber" data-name="Plumber"></a>
+                    <div class="image-name">Plumber</div>
+                </div>
+                <div class="image-container">
+                    <a href="vechicle.html">   <img src="photos\carwash.jpg" alt="Vechical Service" data-title="Vechical Service" data-name="Vechical Servicee"></a>
+                    <div class="image-name">Vechical Service</div>
+                </div>
+                <div class="image-container">
+                    <a href="mechanic.html"> <img src="photos/mechaniocal2.jpg" alt="Mechanic" data-title="Mechanic" data-name="Mechanic"></a>
+                    <div class="image-name">Mechanic</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-title">Home Maintenance and Repair</div>
+        <div class="gallery-container">
+            <div class="scrollable-gallery" id="category2Gallery">
+                <!-- Your existing images for category 2 -->
+                
+                <div class="image-container">
+                    <a href="cleaning copy.html"> <img src="photos/pest2.jpg" alt="Cleaning And Pest Control" data-title="Cleaning And Pest Control" data-name="Cleaning And Pest Control"></a>
+                    <div class="image-name">Cleaning And Pest Control</div>
+                </div>
+                <div class="image-container">
+                    <a href="technician.html"><img src="photos/technician2.jpg" alt="Technician" data-title="Technician" data-name="Technician"></a>
+                    <div class="image-name">Technician</div>
+                </div>
+                <div class="image-container">
+                    <a href="actechnician.html"> <img src="photos/ac.jpg" alt="AC Technician" data-title="AC Technician" data-name="AC Technician"></a>
+                    <div class="image-name">AC Technicians</div>
+                </div>
+                <div class="image-container">
+                    <a href="homeappliance.html">  <img src="photos/home.jpg" alt="Home Appliance Repair" data-title="Home Appliance Repair" data-name="Home Appliance Repair"></a>
+                    <div class="image-name">Home Appliance Repair</div>
+                </div>
+                <div class="image-container">
+                    <a href="painting.html"><img src="photos/paint.jpg" alt="Building Painting" data-title="Building Painting" data-name="Building Painting"></a>
+                    <div class="image-name">Building Painting</div>
+                </div>
+                <div class="image-container">
+                    <a href="furniturerelocation.html">  <img src="photos\furm.jpg" alt="Furniture Relocation Assistance" data-title="Furniture Relocation Assistance" data-name="Furniture Relocation Assistance"></a>
+                    <div class="image-name">Furniture Relocation Assistance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-section">
+                <h2>Welcome to Our Service Page</h2>
+                <p>Explore a variety of services tailored to your needs</p>
+                <button class="about-button" onclick="window.location.href='about.html'">About Us</button>
+            </div>
+        </div>
+
+        <div class="copyright-marquee">
+            <marquee>© 2024 Code Forge Inc. All rights reserved.</marquee>
+        </div>
+    </div>
+    <script>
+        // JavaScript for Search Functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let searchTerm = this.value.toLowerCase();
+            let images = document.querySelectorAll('.scrollable-gallery .image-container');
+            
+            images.forEach(function(image) {
+                let name = image.querySelector('img').getAttribute('data-name').toLowerCase();
+                
+                if (name.includes(searchTerm)) {
+                    image.style.display = 'inline-block';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+        });
+
+        // JavaScript for Image Selection
+        const images = document.querySelectorAll('.scrollable-gallery img');
+        let selectedImageIndex = 0;
+
+        function selectImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('selected');
+                if (i === index) {
+                    img.classList.add('selected');
+                }
+            });
+        }
+
+        
+        selectImage(selectedImageIndex);
+
+        
+        document.getElementById('scrollableGallery').addEventListener('scroll', function() {
+            const centerX = this.scrollLeft + this.offsetWidth / 2;
+            let closestDistance = Infinity;
+
+            images.forEach((img, index) => {
+                const imgCenterX = img.offsetLeft + img.offsetWidth / 2;
+                const distance = Math.abs(centerX - imgCenterX);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    selectedImageIndex = index;
+                }
+            });
+
+            selectImage(selectedImageIndex);
+        });
+
+        
+        const gallery = document.getElementById('scrollableGallery');
+        gallery.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                gallery.scrollLeft += 150; 
+            } else {
+                gallery.scrollLeft -= 150; 
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

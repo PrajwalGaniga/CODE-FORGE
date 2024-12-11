@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Agreement</title>
+    <link rel="stylesheet" href="agreement.css">
+    <style>
+        .agreement-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .agreement-content {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            padding-right: 20px; /* for scrollbar */
+        }
+
+        .accept-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .accept-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="agreement-container">
+        <h2>Provider Agreement</h2>
+
+        <div class="agreement-content">
+            <p><strong>Welcome to ZETAONE!</strong></p>
+
+            <p><strong>Provider Rules and Regulations:</strong></p>
+
+            <ul>
+                <li><strong>Compliance:</strong> All providers must adhere to the company's operational standards.</li>
+                <li><strong>Quality Assurance:</strong> Providers guarantee high-quality services/products to users.</li>
+                <li><strong>Payment Terms:</strong> Providers must process payments efficiently and in a timely manner.</li>
+                <li><strong>Confidentiality:</strong> Providers must maintain confidentiality of all sensitive user and company data.</li>
+                <li><strong>Responsibility:</strong> Providers will be penalized for violating terms, which may lead to account suspension.</li>
+                <li><strong>Legal Jurisdiction:</strong> All provider agreements are governed by applicable local laws.</li>
+            </ul>
+
+            <p><strong>Additional Terms for Providers:</strong></p>
+            <ul>
+                <li><strong>Service Delivery:</strong> Providers must ensure timely and efficient service delivery to users.</li>
+                <li><strong>Account Maintenance:</strong> Providers should maintain their profiles and services on the platform up-to-date.</li>
+                <li><strong>Prohibited Activities:</strong> Providers should not engage in any unethical or illegal activities.</li>
+            </ul>
+
+            <p><strong>Acceptance of Agreement:</strong></p>
+            <p>By clicking the button below, you accept all the terms and conditions mentioned above.</p>
+        </div>
+
+        <!-- Emoji Button to Accept Agreement -->
+        <button class="accept-btn" onclick="acceptAgreement()">✅ Accept</button>
+    </div>
+
+    <script>
+        function acceptAgreement() {
+            window.location.href = "producer-explore.html";  // Redirect to the next page after acceptance
+        }
+    </script>
+</body>
+</html>

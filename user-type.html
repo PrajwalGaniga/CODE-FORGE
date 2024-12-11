@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select User Type</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('photos/weel.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+        
+        }
+
+        /* User Type Box Styles */
+        .user-type {
+            width: 30%;
+            padding: 50px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .user-type:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .user-type h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .user-type p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .user-type button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #FF9E3D;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .user-type button:hover {
+            background-color: #FF6F61;
+            transform: scale(1.1);
+        }
+
+        /* Make the buttons in each section center aligned */
+        .user-type-container {
+            display: flow-root;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: ;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- User Type: User -->
+        <div class="user-type">
+            <div class="user-type-container">
+                <h2>User</h2>
+                <p>Access personalized content and services.</p>
+                <button onclick="redirectTo('user')">Select User</button>
+            </div>
+        </div>
+
+        <!-- User Type: Admin -->
+        <div class="user-type">
+            <div class="user-type-container">
+                <h2>Admin</h2>
+                <p>Manage the platform, oversee content and users.</p>
+                <button onclick="redirectTo('admin')">Select Admin</button>
+            </div>
+        </div>
+
+        <!-- User Type: Producer -->
+        <div class="user-type">
+            <div class="user-type-container">
+                <h2>Producer</h2>
+                <p>Create and distribute content for users.</p>
+                <button onclick="redirectTo('producer')">Select Producer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect function for the buttons
+        function redirectTo(userType) {
+            if (userType === 'user') {
+                window.location.href = 'user-login.html'; // Redirect to user login page
+            } else if (userType === 'admin') {
+                window.location.href = 'admin-login.html'; // Redirect to admin login page
+            } else if (userType === 'producer') {
+                window.location.href = 'producer-login.html'; // Redirect to producer login page
+            }
+        }
+    </script>
+
+</body>
+</html>

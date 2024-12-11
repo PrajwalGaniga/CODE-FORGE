@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-option {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #f1f1f1;
+        }
+
+        .payment-option:hover {
+            background: #e0e0e0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .credit-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .credit-card img {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .credit-card input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .upi-options img {
+            width: 50px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .upi-options img:hover {
+            transform: scale(1.2);
+        }
+
+        .cash-payment {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .btn-submit {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a Payment Method</h1>
+
+        <!-- Credit Card Option -->
+        <div class="payment-option" onclick="showCreditCard()">
+            <h2>Pay with Credit Card</h2>
+        </div>
+
+        <div id="credit-card-section" class="hidden">
+            <div class="credit-card">
+                <img src="credit-card.png" alt="Credit Card Image">
+                <input type="text" placeholder="Card Number" maxlength="16">
+                <input type="text" placeholder="Expiry Date (MM/YY)" maxlength="5">
+                <input type="text" placeholder="CVV" maxlength="3">
+                <button class="btn-submit">Submit Payment</button>
+            </div>
+        </div>
+
+        <!-- UPI Option -->
+        <div class="payment-option" onclick="showUPI()">
+            <h2>Pay with UPI</h2>
+        </div>
+
+        <div id="upi-section" class="hidden">
+            <div class="upi-options">
+                <img src="C:xampp/htdocs/img/Payment.jpg" alt="Paytm" onclick="enterUPI('Paytm')">
+                <img src="C:xampp/htdocs/img/Payment.jpg" alt="Paytm" onclick="enterUPI('Paytm')">
+                <img src="C:xampp/htdocs/img/Payment.jpg" alt="Paytm" onclick="enterUPI('Paytm')">
+                <img src="C:xampp/htdocs/img/Payment.jpg" alt="Paytm" onclick="enterUPI('Paytm')">
+            </div>
+            <input id="upi-id" class="hidden" type="text" placeholder="Enter UPI ID">
+            <button id="upi-submit" class="btn-submit hidden">Submit Payment</button>
+        </div>
+
+        <!-- Cash Payment Option -->
+        <div class="payment-option" onclick="showCashPayment()">
+            <h2>Pay with Cash</h2>
+        </div>
+
+        <div id="cash-section" class="hidden">
+            <p class="cash-payment">Please pay the amount in cash at the counter!</p>
+        </div>
+    </div>
+
+    <script>
+        function hideAllSections() {
+            document.getElementById('credit-card-section').classList.add('hidden');
+            document.getElementById('upi-section').classList.add('hidden');
+            document.getElementById('cash-section').classList.add('hidden');
+        }
+
+        function showCreditCard() {
+            hideAllSections();
+            document.getElementById('credit-card-section').classList.remove('hidden');
+        }
+
+        function showUPI() {
+            hideAllSections();
+            document.getElementById('upi-section').classList.remove('hidden');
+        }
+
+        function enterUPI(provider) {
+            document.getElementById('upi-id').classList.remove('hidden');
+            document.getElementById('upi-submit').classList.remove('hidden');
+            document.getElementById('upi-id').placeholder = `Enter UPI ID for ${provider}`;
+        }
+
+        function showCashPayment() {
+            hideAllSections();
+            document.getElementById('cash-section').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

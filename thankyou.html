@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Visiting</title>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            overflow: hidden;
+        }
+
+        /* Container for the Thank You message */
+        .thank-you-container {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transform: scale(0);
+            opacity: 0;
+            animation: fadeInUp 2s forwards, scaleUp 2s forwards;
+        }
+
+        /* Animation for fade-in and scale-up */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: popIn 1s ease-in-out forwards;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+            animation: fadeInText 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Animated background */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF6F61, #FF9E3D, #FFD700);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Button with animation */
+        .btn {
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            background-color: #FF9E3D;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FF6F61;
+            transform: scale(1.1);
+        }
+
+        /* Log Out button */
+        .logout-btn {
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            background-color: #FF6347;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #FF4500;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="background-animation"></div>
+
+<div class="thank-you-container">
+    <h1>Thank You for Visiting!</h1>
+    <p>Your presence is greatly appreciated. We hope you enjoyed your visit.</p>
+    <button class="btn" onclick="redirectToHomepage()">Go Back to Homepage</button>
+    
+    <!-- Log Out button added below -->
+    <button class="logout-btn" onclick="redirectToLoginPage()">Log Out</button>
+</div>
+
+<script>
+    // Redirect function for the button
+    function redirectToHomepage() {
+        window.location.href = 'user-home.html'; // Change to your homepage URL
+    }
+
+    // Redirect function for the Log Out button
+    function redirectToLoginPage() {
+        window.location.href = 'user-type.html'; // Redirect to the user-type selection page
+    }
+</script>
+
+</body>
+</html>

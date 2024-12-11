@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chatbot</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+    <!-- Left background with blur effect -->
+    <div class="blur-background"></div>
+
+    <!-- Chatbot popup -->
+    <div class="chatbot" id="chatbot">
+        <!-- Coming Back Button (with an arrow icon) inside the chat box -->
+        <button class="back-button" onclick="goBack()">
+            &#8592; <!-- Unicode for left arrow -->
+        </button>
+
+        <div class="chat-header">Chatbot</div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+            <!-- Buttons with predefined questions -->
+            <button class="question-btn" onclick="sendMessage('What services do you offer?')">Services</button>
+            <button class="question-btn" onclick="sendMessage('How can I contact support?')">Support</button>
+            <button class="question-btn" onclick="sendMessage('What are your operating hours?')">Hours</button>
+            <button class="question-btn" onclick="sendMessage('Can I return a product?')">Return</button>
+            <button class="question-btn" onclick="sendMessage('Do you offer international shipping?')">Shipping</button>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+    <script>
+        // JavaScript function for the back button
+        function goBack() {
+            window.history.back(); // This goes back to the previous page in the browser history
+        }
+
+        // You can add other JavaScript functions like sendMessage here
+        function sendMessage(message) {
+            // Implement the message sending logic
+            const chatBody = document.getElementById('chatBody');
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('chat-message');
+            newMessage.textContent = message;
+            chatBody.appendChild(newMessage);
+        }
+    </script>
+</body>
+</html>

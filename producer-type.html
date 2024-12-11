@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select User Type</title>
+    <link rel="stylesheet" href="css/styles.css">  <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Container for Forms */
+.form-container {
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideDown 1s ease;
+}
+
+/* Slide Down animation */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Header Styles */
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields */
+input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Input Hover and Focus */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effects */
+button:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+/* Register Button Specific */
+button.register-btn:hover {
+    background: #2196F3;
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2196F3;
+}
+
+/* Loader Animation */
+.loader {
+    margin: 20px auto;
+    border: 4px solid #f4f4f4;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome to ZETAONE</h2>
+        <p>Please select your user type:</p>
+        <form>
+            <button type="button" onclick="redirectTo('user')">USER</button>
+            <button type="button" onclick="redirectTo('admin')">ADMIN</button>
+            <button type="button" onclick="redirectTo('producer')">PRODUCER</button>
+        </form>
+    </div>
+
+    <script src="producer-type.js"></script>
+</body>
+</html>

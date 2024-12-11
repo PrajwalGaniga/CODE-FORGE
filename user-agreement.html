@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Agreement</title>
+    <link rel="stylesheet" href="agreement.css">
+    <style>
+        .agreement-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .agreement-content {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            padding-right: 20px; /* for scrollbar */
+        }
+
+        .accept-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .accept-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="agreement-container">
+        <h2>User Agreement</h2>
+
+        <div class="agreement-content">
+            <p><strong>Welcome to ZETAONE!</strong></p>
+
+            <p><strong>User Rules and Regulations:</strong></p>
+
+            <ul>
+                <li><strong>Compliance:</strong> All users must follow the company's usage guidelines.</li>
+                <li><strong>Quality Assurance:</strong> Users should expect high-quality services and support.</li>
+                <li><strong>Payment Terms:</strong> All users must process payments on time for products or services.</li>
+                <li><strong>Confidentiality:</strong> Users agree to keep all data and transactions confidential.</li>
+                <li><strong>Responsibility:</strong> Any violation of terms will result in penalties or account suspension.</li>
+                <li><strong>Legal Jurisdiction:</strong> User agreements are governed by local laws and regulations.</li>
+            </ul>
+
+            <p><strong>Additional Terms for Users:</strong></p>
+            <ul>
+                <li><strong>Account Usage:</strong> Users must maintain an active account and keep their information updated.</li>
+                <li><strong>Prohibited Activities:</strong> Users should refrain from engaging in fraudulent or illegal activities.</li>
+            </ul>
+
+            <p><strong>Acceptance of Agreement:</strong></p>
+            <p>By clicking the button below, you accept all the terms and conditions mentioned above.</p>
+        </div>
+
+        <!-- Emoji Button to Accept Agreement -->
+        <button class="accept-btn" onclick="acceptAgreement()">✅ Accept</button>
+    </div>
+
+    <script>
+        function acceptAgreement() {
+            window.location.href = "user-home.html";  // Redirect to the next page after acceptance
+        }
+    </script>
+</body>
+</html>

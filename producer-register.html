@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+   /* General Reset */
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('photos/weel.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Container for Forms */
+        .form-container {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: slideDown 1s ease;
+        }
+
+        /* Slide Down animation */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Header Styles */
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Fields */
+        input {
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Input Hover and Focus */
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* Buttons */
+        button {
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Button Hover Effects */
+        button:hover {
+            background: #45a049;
+            transform: scale(1.1);
+        }
+
+        /* Register Button Specific */
+        button.register-btn:hover {
+            background: #2196F3;
+            color: white;
+            transform: scale(1.2);
+        }
+
+        /* Link Styling */
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2196F3;
+        }
+    </style>
+    <script>
+        // JavaScript function to handle form submission and redirect
+        function registerUser(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Simulate registration success (in reality, you'd use an API or server to handle this)
+            if (name && email && password) {
+                alert("Registration Successful! Redirecting to login page.");
+                window.location.href = "producer-login.html"; // Redirect to the login page after successful registration
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Provider Registration</h2>
+        <!-- Producer Registration Form -->
+        <form id="registrationForm" onsubmit="registerUser(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="producer-login.html">Login here</a></p>
+    </div>
+</body>
+</html>

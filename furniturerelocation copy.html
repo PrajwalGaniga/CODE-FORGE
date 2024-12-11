@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Information</title>
+  <link rel="stylesheet" href="detail.css">
+  <style>
+   
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #c6ffdd, #fbd786, #f7797d);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  .container {
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  
+  header {
+    background: #00bcd4;
+    color: #ffffff;
+    padding: 20px 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
+  
+  
+  .service-info {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .details h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .details p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .details strong {
+    color: #555;
+  }
+  
+  
+  .booking {
+    margin-top: 20px;
+  }
+  
+  #bookingBtn {
+    padding: 10px 20px;
+    background: #00c853;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #bookingBtn:hover {
+    background: #007e33;
+  }
+  
+  
+  .chat-icon {
+    margin-top: 40px;
+  }
+  
+  .chat-icon-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #555;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .chat-icon-img:hover {
+    transform: scale(1.2);
+    background: #e0e0e0;
+  }
+  
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to Our Service</h1>
+    </header>
+
+
+    <section class="service-info">
+      <div class="image-container">
+        <img src="photos\furm.jpg" alt="Service Image">
+      </div>
+      
+      <div class="details">
+        <h2>Service Provider: Shashank</h2>
+        <p><strong>Phone Number:</strong> +91 7564651341</p>
+        <p><strong>Slogan: </strong>  
+          "Moving Your Furniture with Care and Precision!"
+        </p><p><strong>Information:</strong> <p></p>
+       1.Safe and Damage-Free Furniture Handling<br>
+       2.Efficient Packing and Secure Transportation<br>
+       3.Skilled Team for Heavy and Delicate Items<br>
+       4.Timely Delivery and Setup Assistance
+        
+        
+        
+        
+        
+        
+        <p><strong>Service Charge:</strong> $150 per hour</p>
+      </div>
+    </section>
+
+    
+    <section class="booking">
+      <a href="user-registration.html"> <button id="bookingBtn">Book a Service</button></a>
+     </section>
+  
+    <section class="chat-icon">
+      <a href="chat.html">
+        <img class="chat-icon-img" src="photos/newchat.jpg" alt="Chatbot">
+      </a>
+    </section>
+  </div>
+
+
+  
+ 
+</body>
+</html>

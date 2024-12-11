@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, textarea, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FF4500;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Register Your Slot</h1>
+        <form  id="userLoginForm">
+            <b>Personal Information </b> 
+            <input type="text" placeholder="Enter your full name" required>
+            <input type="email" placeholder="Enter your email" required>
+            <input type="text" placeholder="Enter your phone number" required>
+            <textarea placeholder="Enter Correct Address" rows="4" required></textarea>
+            <input type="date"="enter the date " required>
+            <select required>
+                <option value="">Select Your Domain</option>
+                <optgroup label="Maintainance and Repair"></optgroup>
+                        <option value="electrician">Electrician</option>
+                        <option value="interior Design and Renovation">Interior Design and Renovation</option>
+                        <option value="Furniture repair and Assembly(carpentry)">Furniture Repair and Assembly</option>
+                        <option value="Plumber">Plumber</option>
+                        <option value="Machanic">Machanic</option>
+                        <optgroup label="Home Maintainance And Repair"></optgroup>
+                        <option value="Cleaning And Pest Control ">Cleaning And Pest Control</option>
+                        <option value="Technician">Technician</option>
+                        <option value="AC Technician">AC Technician</option>
+                        <option value="Home Appliance Repair">Home Appliance Repair</option>
+                        <option value="Building Painting">Building Painting</option>
+            </select>
+          
+            <textarea placeholder="Describe your work to be done" rows="4" required></textarea>
+
+            <button class="payment-option" onclick="window.location.href='Payment.html'">Payment</button>
+           
+            <a href="thankyou.html"><button type="submit">Submit</button></a>
+        </form>
+        <div class="copyright-marquee">
+            <marquee>© 2024 Code Forge Inc. All rights reserved.</marquee>
+        </div>
+    </div>
+    <script>
+        // Function to redirect to the login or registration page based on the user type
+function redirectTo(userType) {
+    if (userType === 'user') {
+        // Redirect to user login page
+        window.location.href = 'user-login.html'; // This will be the login or registration page for users
+    } else if (userType === 'admin') {
+        // Redirect to admin login page
+        window.location.href = 'admin-login.html'; // This will be the login page for admins
+    } else if (userType === 'producer') {
+        // Redirect to producer login page
+        window.location.href = 'producer-login.html'; // This will be the login or registration page for producers
+    }
+}
+
+// Function to handle form submission and redirect to thank you page
+function handleFormSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Logic for form submission (you can add validation or API calls here)
+    // After successful submission, redirect to thankyou.html
+
+    window.location.href = 'thankyou.html'; // Redirect to the thank you page after form submission
+}
+
+// Example: Attach the form submit handler to the form elements (this is just an example)
+document.getElementById('userLoginForm').addEventListener('submit', handleFormSubmit);
+document.getElementById('adminLoginForm').addEventListener('submit', handleFormSubmit);
+document.getElementById('producerLoginForm').addEventListener('submit', handleFormSubmit);
+
+    </script>
+</body>
+</html>
